@@ -20,3 +20,4 @@ $ cd ApiRestVacunas
 $ mvn clean package install
 ```
 
+postman/PruebaKrug.postman_collection.json**.
