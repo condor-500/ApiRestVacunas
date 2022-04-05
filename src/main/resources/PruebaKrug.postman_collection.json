@@ -1,0 +1,341 @@
+{
+	"info": {
+		"_postman_id": "705b9e48-276f-4928-9235-56c9159cb88a",
+		"name": "PruebaKrug",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TokenAuth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Jefferson",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "AppPrueba",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "andres",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345"
+						},
+						{
+							"key": "grant_type",
+							"value": "password"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateEmpleado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkxMDM0NzIsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiNzFlNDMzYWMtYTFiYi00MGEyLTljYzgtMzY0OTAzOGExODI3IiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.Z2hg3HFlwPWV3NQEr0Unkf50R9l5zksL9lPTGWJNdYI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \r\n        \"cedula\": \"0401096219\",\r\n        \"nombre\": \"JEFFERSON ANDRES\",\r\n        \"apellido\": \"JACOME CABRERA\",\r\n        \"mail\": \"jjandres12@gmail.com\",\r\n        \"fechaNacimiento\": \"1989-09-11\",\r\n        \"direccion\": \"quito\",\r\n        \"telefono\": \"0904096219\",\r\n        \"estadoVacunacion\": \"Vacunado\",\r\n        \"vacunas\":[{\r\n            \r\n            \"numeroVacuna\":2,\r\n             \"fechaVacuna\":\"2021-06-06\",\r\n             \"tipoVacuna\":\"Sinovac\"\r\n        }]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/79",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"79"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllEmpleados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkxMjIyMDQsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiNzIzYjE4NWItMWQxZC00M2YzLTkwYTUtZDMyZDkxMDExZjQ0IiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.tVaPJ4Dl_iP4ciIao6RAWgg97SC0cCcjZQ0MevWAsro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 8,\r\n        \"cedula\": \"0400755096\",\r\n        \"nombre\": \"MANUEL ELIECER\",\r\n        \"apellido\": \"JACOME CABRERA\",\r\n        \"mail\": \"mejc1569@gmail.com\",\r\n        \"fechaNacimiento\": \"1978-09-12T05:00:00.000+00:00\",\r\n        \"direccion\": \"TULCAN\",\r\n        \"telefono\": \"0904096219\",\r\n        \"estadoVacunacion\": \"t\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteEmpleados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkwNjMyNDEsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiNTI3OTQzYTQtNzQyMy00ZTQ3LWE1NjItOWFkN2RmMjVkYjVhIiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.s0Wzv18X3juCo14qtXP4qlZLUpQ5GT4lFDbKEOzk9k0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/empleados/38",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados",
+						"38"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertEmpleados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkwOTY0MjYsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiY2UyYzBlZjMtYmNkMi00ZTVlLTgxYmEtYjhmNzcwMjg0MTIwIiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.0EujIKIAYTHC4osvTSCohBYqsk4SBqRXxqE5lZQ8-AQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n       \r\n        \"cedula\": \"1002036591\",\r\n        \"nombre\": \"LIDIA IRENE\",\r\n        \"apellido\": \"HERANDEZ BERNAL\",\r\n        \"mail\": \"lidiaIrene@gmail.com\",\r\n        \"fechaNacimiento\": \"1978-10-12\",\r\n        \"direccion\": \"TULCAN\",\r\n        \"telefono\": \"0946464632\",\r\n        \"estadoVacunacion\": \"Vacunado\",\r\n        \"vacunas\":[{\r\n            \r\n            \"numeroVacuna\":1,\r\n             \"fechaVacuna\":\"2021-02-23\",\r\n             \"tipoVacuna\":\"Pfizer\"\r\n        }]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/empleados",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"empleados"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTipoVacuna",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkxMjIwOTEsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiMzM1ZmZmM2EtNThlMS00ODM3LWFiYTktZjA1YWM3MzdlNDZjIiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.btMbXP8JgP5POT-LhFVHyTYhtbLQSnQlxIOTv2n-9nA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/tipoVacuna?tipo=Pfizer0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tipoVacuna"
+					],
+					"query": [
+						{
+							"key": "tipo",
+							"value": "Pfizer0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEstadoVacunado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkxMjIyMDQsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiNzIzYjE4NWItMWQxZC00M2YzLTkwYTUtZDMyZDkxMDExZjQ0IiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.tVaPJ4Dl_iP4ciIao6RAWgg97SC0cCcjZQ0MevWAsro",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estadoVacuna?estado=Vacunado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estadoVacuna"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "Vacunado"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFechaVacunacion",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDkxMjM3MTAsInVzZXJfbmFtZSI6ImFuZHJlcyIsImF1dGhvcml0aWVzIjpbIlJPTEVfQURNSU4iLCJST0xFX1VTRVIiXSwianRpIjoiMDIwOWJlMTMtY2VmNy00ODY3LTgzZGQtMjEwMzVmYjA4MjI0IiwiY2xpZW50X2lkIjoiQXBwUHJ1ZWJhIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl19.yL2dPOpi0MRAMOqADH7Br7dyJNiku2skCxWjzfvNhoo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fechaVacunacion?desdef=2021/01/01&hastaf=2021/01/31",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fechaVacunacion"
+					],
+					"query": [
+						{
+							"key": "desdef",
+							"value": "2021/01/01"
+						},
+						{
+							"key": "hastaf",
+							"value": "2021/01/31"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
