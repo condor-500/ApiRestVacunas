@@ -9,8 +9,8 @@
 	</parent>
 	<groupId>com.jefferson</groupId>
 	<artifactId>apijefferson1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<version>0.0.1</version>
+	<packaging>jar</packaging>
 	<name>apijefferson1</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

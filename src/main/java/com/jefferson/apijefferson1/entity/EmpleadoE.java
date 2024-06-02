@@ -22,6 +22,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.jefferson.apijefferson1.common.ValidaCedula;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -45,6 +46,7 @@ public class EmpleadoE  implements Serializable  {
     @NotEmpty(message = "No puede estar vacio")
     @Size(min=10, max=10, message = "Tiene que tener 10 caracteres")
     @Pattern(regexp = "[0-9]*",message = "Solo Puede contener numeros")
+    @ValidaCedula(message = "cedula Invalida" )
     private String cedula;
     
     @Column(name = "nombre_empl",length = 200)

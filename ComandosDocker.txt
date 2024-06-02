@@ -1,0 +1,14 @@
+Crear la imagen de docker
+docker build -t prueba1 .
+
+
+docker scan
+
+*/ para ver las imagenes de dockert
+docker images 
+
+*/ poner en contenedor 
+docker run -p 8080:8080 -d prueba1
+
+/* para ver la imagens corrien
+docker ps 
