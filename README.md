@@ -3,7 +3,7 @@ Api rest que permite consultar información de vacunas
 Detalle del problema.- se tiene que crear un api rest que permite crear usuarios , empleados y vacunas las mismas que se aplicaran deacuerdo a la vacunas puestas
 
 ## Screenshots  
-![App Screenshot](https://github.com/condor-500/ApiRestVacunas/image/image.png)  
+![App Screenshot](https://raw.githubusercontent.com/condor-500/ApiRestVacunas/main/image/image.png)  
 
 
 ## Software requerido
