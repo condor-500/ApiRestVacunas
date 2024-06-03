@@ -15,9 +15,16 @@ import javax.persistence.Id;
 
 import javax.persistence.Table;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 
 @Entity
 @Table( name = "vacunas")
+@Getter
+@Setter
+@ToString
 public class VacunaE implements Serializable {
     
 
@@ -47,70 +54,7 @@ public class VacunaE implements Serializable {
       
    }
 
-   public Long getId() {
-      return id;
-   }
-
-   public void setId(Long id) {
-      this.id = id;
-   }
-
-   public int getNumeroVacuna() {
-      return numeroVacuna;
-   }
-
-   public void setNumeroVacuna(int numeroVacuna) {
-      this.numeroVacuna = numeroVacuna;
-   }
-
-   public Date getFechaVacuna() {
-      return fechaVacuna;
-   }
-
-
-   public void setFechaVacuna(Date fechaVacuna) {
-      this.fechaVacuna = fechaVacuna;
-   }
-
-
-   public String getTipoVacuna() {
-      return tipoVacuna;
-   }
-
-
-   public void setTipoVacuna(String tipoVacuna) {
-      this.tipoVacuna = tipoVacuna;
-   }
-
-
-
-   public Long getIdEmpleadoVacuna() {
-      return idEmpleadoVacuna;
-   }
-
-
-
-   public void setIdEmpleadoVacuna(Long idEmpleadoVacuna) {
-      this.idEmpleadoVacuna = idEmpleadoVacuna;
-   }
-
-
-
-   @Override
-   public String toString() {
-      return "VacunaE [fechaVacuna=" + fechaVacuna + ", id=" + id + ", idEmpleadoVacuna=" + idEmpleadoVacuna
-            + ", numeroVacuna=" + numeroVacuna + ", tipoVacuna=" + tipoVacuna + "]";
-   }
-
-
   
-
-
- 
-
-
-
-
 
    
 

@@ -1,6 +1,6 @@
 package com.jefferson.apijefferson1.auth;
 
-import com.jefferson.apijefferson1.common.Constants1;
+import com.jefferson.apijefferson1.common.Constants;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -39,8 +39,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         
-        clients.inMemory().withClient(Constants1.NombreApp)
-                .secret(passwordEncoder.encode(Constants1.ContraseniaApp ))
+        clients.inMemory().withClient(Constants.NOMPRE_APP)
+                .secret(passwordEncoder.encode(Constants.CONTRASENIA ))
                 .scopes("read", "write") //le damos permiso de lectura y escritura
                 .authorizedGrantTypes("password", "refresh_token")
                 .accessTokenValiditySeconds(9600)  //timepo de validen del token 

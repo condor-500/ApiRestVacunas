@@ -33,9 +33,11 @@ public class UsuarioImplS  implements UserDetailsService , IUsuarioS  {
     @Override
     @Transactional(readOnly=true )
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+       logger.info(username);
         UsuarioE usuario = usuarioDTO.findByUsuarioNombre1(username);
                 
         if(usuario == null){
+            logger.info(usuario.getContrasenia());
             logger.error("Error en el logeo no existe ");
             throw new UsernameNotFoundException("erro al cargar el usuario");
         }        

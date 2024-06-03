@@ -16,9 +16,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @Table(name = "usuarios")
+@Getter
+@Setter
 public class UsuarioE implements Serializable {
     
     private static final long serialVersionUID = 1L ; 
@@ -43,47 +48,6 @@ public class UsuarioE implements Serializable {
      uniqueConstraints = {@UniqueConstraint(columnNames = {"UsuarioE_id","RoleE_id"}) } )
     private List<RoleE> roles ;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    public Boolean getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
-    public List<RoleE> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<RoleE> roles) {
-        this.roles = roles;
-    }
-
-
-    
+        
     
 }

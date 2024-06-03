@@ -24,6 +24,9 @@ import javax.validation.constraints.Size;
 
 import com.jefferson.apijefferson1.common.ValidaCedula;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.GeneratedValue;
@@ -33,6 +36,8 @@ import javax.persistence.GeneratedValue;
 
 @Entity
 @Table( name = "empleados")
+@Getter
+@Setter
 public class EmpleadoE  implements Serializable  {
 
 

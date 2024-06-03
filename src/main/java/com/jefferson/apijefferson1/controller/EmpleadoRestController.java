@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
+import com.jefferson.apijefferson1.common.Constants;
 import com.jefferson.apijefferson1.entity.EmpleadoE;
 import com.jefferson.apijefferson1.entity.VacunaE;
 import com.jefferson.apijefferson1.services.IEmpleadoS;
@@ -30,7 +31,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(Constants.URL_API)
 public class EmpleadoRestController {
 
   @Autowired
@@ -104,22 +105,7 @@ public class EmpleadoRestController {
     }
 
     try {
-      empleadoA.setCedula(empleado.getCedula());
-      empleadoA.setNombre(empleado.getNombre());
-      empleadoA.setApellido(empleado.getApellido());
-      empleadoA.setMail(empleado.getMail());
-      empleadoA.setDireccion(empleado.getDireccion());
-      empleadoA.setFechaNacimiento(empleado.getFechaNacimiento());
-      empleadoA.setEstadoVacunacion(empleado.getEstadoVacunacion());
-      empleadoA.setTelefono(empleado.getTelefono());
-      VacunaE vacuna = new VacunaE();
-      vacuna.setIdEmpleadoVacuna(empleado.getId());
-      vacuna.setNumeroVacuna(empleado.getVacunas().get(0).getNumeroVacuna());
-      vacuna.setFechaVacuna(empleado.getVacunas().get(0).getFechaVacuna());
-      vacuna.setTipoVacuna(empleado.getVacunas().get(0).getTipoVacuna());
-
-      empleadoA.addVacuna(vacuna);
-
+      
       empleadoU = empleadoS.save(empleadoA);
 
     } catch (DataAccessException e) {
@@ -180,7 +166,7 @@ public class EmpleadoRestController {
     List<EmpleadoE> empleado = null;
     empleado = empleadoS.findByFechaVacunacion(desdef , hastaf) ;
     Map<String, Object> mensaje = new HashMap<>();
-    if (empleado.size() == 0) {
+    if (empleado.isEmpty()) {
       mensaje.put("Mensaje", "No existen Datos para la busqueda realizada");
       return new ResponseEntity<Map<String, Object>>(mensaje, HttpStatus.NOT_FOUND);
     }

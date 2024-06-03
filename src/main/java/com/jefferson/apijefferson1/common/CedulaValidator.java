@@ -15,16 +15,16 @@ public class CedulaValidator implements ConstraintValidator <ValidaCedula ,Strin
 
 
     private boolean validaCedula(String cedula) {
-        if(ValidaCodigoProvincia(cedula.substring(0, 2)) == true &&
-           ValidaTercerDigito(String.valueOf(cedula.charAt(2))) == true &&
-           algoritmoModulo10(cedula,Integer.parseInt(String.valueOf(cedula.charAt(9))))==true ){
+        if(validaCodigoProvincia(cedula.substring(0, 2)) &&
+           validaTercerDigito(String.valueOf(cedula.charAt(2))) &&
+           algoritmoModulo10(cedula,Integer.parseInt(String.valueOf(cedula.charAt(9)))) ){
             return true;
         }
         else {
             return false ;
         }
      }
-     private boolean ValidaCodigoProvincia(String numero ){
+     private boolean validaCodigoProvincia(String numero ){
          if(Integer.parseInt(numero)< 0 || Integer.parseInt(numero)>24 ){
              return false ;
          }
@@ -32,7 +32,7 @@ public class CedulaValidator implements ConstraintValidator <ValidaCedula ,Strin
              return true ;
          }
      }
-     private boolean ValidaTercerDigito (String numero){
+     private boolean validaTercerDigito (String numero){
         if(Integer.parseInt(numero) >= 0 || Integer.parseInt(numero)< 6){
             return true ;
         }

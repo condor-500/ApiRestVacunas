@@ -1,21 +1,19 @@
 package com.jefferson.apijefferson1.entity;
 
 import java.io.Serializable;
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.Table;
-
-
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table( name = "roles")
-
+@Getter
+@Setter
 public class RoleE implements Serializable {
 
     @Id
@@ -24,25 +22,5 @@ public class RoleE implements Serializable {
 
     @Column(unique = true , length = 20)
     private String nombre ;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    
-
-
 
 }

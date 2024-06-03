@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 
 import com.jefferson.apijefferson1.dto.IEmpleadoDTO;
 import com.jefferson.apijefferson1.entity.EmpleadoE;
+import com.jefferson.apijefferson1.entity.VacunaE;
 import com.jefferson.apijefferson1.services.IEmpleadoS;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,23 @@ public class EmpleadoImplS implements IEmpleadoS  {
 
     @Override
     public EmpleadoE save(EmpleadoE empleado) {
-     
-        return empleadoDTO.save(empleado);
+        EmpleadoE empleadoA = findById(null);
+        empleadoA.setCedula(empleado.getCedula());
+        empleadoA.setNombre(empleado.getNombre());
+        empleadoA.setApellido(empleado.getApellido());
+        empleadoA.setMail(empleado.getMail());
+        empleadoA.setDireccion(empleado.getDireccion());
+        empleadoA.setFechaNacimiento(empleado.getFechaNacimiento());
+        empleadoA.setEstadoVacunacion(empleado.getEstadoVacunacion());
+        empleadoA.setTelefono(empleado.getTelefono());
+        VacunaE vacuna = new VacunaE();
+        vacuna.setIdEmpleadoVacuna(empleado.getId());
+        vacuna.setNumeroVacuna(empleado.getVacunas().get(0).getNumeroVacuna());
+        vacuna.setFechaVacuna(empleado.getVacunas().get(0).getFechaVacuna());
+        vacuna.setTipoVacuna(empleado.getVacunas().get(0).getTipoVacuna());
+        empleadoA.addVacuna(vacuna);
+        empleadoDTO.save(empleadoA);
+        return empleadoA;
     }
 
     @Override
