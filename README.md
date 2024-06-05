@@ -22,7 +22,7 @@ Go to the project directory
 
 ## Postman Collection
 
-postman/PruebaKrug.postman_collection.json**.
+
 
 ## Usuario / contraseña
 - Andres
